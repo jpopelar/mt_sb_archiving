@@ -299,15 +299,17 @@ def get_nm_elev(latitude, longitude):
 
 def download_files(page_id, save_dir, file_types=[".edi"]):
     """
+    Downloads a ScienceBase page's contents to the local disk
 
-    :param page_id: DESCRIPTION
-    :type page_id: TYPE
-    :param destination: DESCRIPTION
-    :type destination: TYPE
-    :param file_types: DESCRIPTION, defaults to [".edi"]
-    :type file_types: TYPE, optional
-    :return: DESCRIPTION
-    :rtype: TYPE
+    :param page_id: The ScienceBase page ID to download from
+    :type page_id: string
+    :param save_dir: Path to the directory to save files to
+    :type save_dir: string
+    :param file_types: The file extension for the files of interest, defaults to [".edi"]
+    :type file_types: Array of strings, optional
+    
+    :return: None
+    :rtype: None
 
     """
 

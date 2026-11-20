@@ -35,8 +35,8 @@ class MTSBXML(xml_utils.XMLRecord):
 
         :param template_fn: Full path to template XML file
         :type template_fn: string or Path
-        :return: fills
-        :rtype: TYPE
+        :return: None
+        :rtype: None
 
         """
 
@@ -399,10 +399,10 @@ class MTSBXML(xml_utils.XMLRecord):
     def _update_processing(self, config_object):
         """
         Update processing steps
-        :param config_object: DESCRIPTION
-        :type config_object: TYPE
-        :return: DESCRIPTION
-        :rtype: TYPE
+        :param config_object: The processing object for updating
+        :type config_object: dictionary
+        :return: None
+        :rtype: None
 
         """
         self.metadata.dataqual.lineage.clear_children("procstep")
@@ -433,11 +433,11 @@ class MTSBXML(xml_utils.XMLRecord):
 
     def _update_attachments(self, config_object):
         """
-        Update processing steps
-        :param config_object: DESCRIPTION
-        :type config_object: TYPE
-        :return: DESCRIPTION
-        :rtype: TYPE
+        Update attachments on .xml files
+        :param config_object: The object containing attachment metadata
+        :type config_object: dictionary
+        :return: None
+        :rtype: None
 
         """
         self.metadata.eainfo.clear_children("overview")
@@ -470,10 +470,11 @@ class MTSBXML(xml_utils.XMLRecord):
         Update release and metadata dates to input date or if not input the current
         date
 
-        :param date: DESCRIPTION, defaults to None
-        :type date: TYPE, optional
-        :return: DESCRIPTION
-        :rtype: TYPE
+        :param date: The new date to refresh to if current date is not desired, 
+                     defaults to None
+        :type date: UTC date, optional
+        :return: None
+        :rtype: None
 
         """
 
@@ -488,12 +489,12 @@ class MTSBXML(xml_utils.XMLRecord):
         """
         Update time period start and end times
 
-        :param start: DESCRIPTION
-        :type start: TYPE
-        :param end: DESCRIPTION
-        :type end: TYPE
-        :return: DESCRIPTION
-        :rtype: TYPE
+        :param start: The new start time
+        :type start: UTC time code
+        :param end: The new end time
+        :type end: UTC time code
+        :return: None
+        :rtype: None
 
         """
         self.metadata.idinfo.timeperd.timeinfo.rngdates.clear_children()
@@ -535,10 +536,10 @@ class MTSBXML(xml_utils.XMLRecord):
         """
         Update the bounds on shapefile attributes from the survey dataframe
 
-        :param df: DESCRIPTION
-        :type df: TYPE
-        :return: DESCRIPTION
-        :rtype: TYPE
+        :param df: Survey dataframe
+        :type df: Pandas dataframe
+        :return: None
+        :rtype: None
 
         """
 
@@ -570,8 +571,8 @@ class MTSBXML(xml_utils.XMLRecord):
 
         Parameters
         ----------
-        station : TYPE
-            DESCRIPTION.
+        station : string
+            Station name to perform updates with.
 
         Returns
         -------
@@ -623,8 +624,7 @@ class MTSBXML(xml_utils.XMLRecord):
 
         Parameters
         ----------
-        mdate : TYPE
-            DESCRIPTION.
+        None.
 
         Returns
         -------

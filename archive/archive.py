@@ -130,10 +130,10 @@ class SBMTArcive:
 
         Parameters
         ----------
-        name : TYPE
-            DESCRIPTION.
-        value : TYPE
-            DESCRIPTION.
+        name : string
+            The name of the attribute to override.
+        value : string
+            The desired new value of the attribute.
 
         Returns
         -------
@@ -186,8 +186,8 @@ class SBMTArcive:
 
         Parameters
         ----------
-        fn : TYPE
-            DESCRIPTION.
+        fn : string
+            Name and location of the config file.
 
         Returns
         -------
@@ -205,10 +205,10 @@ class SBMTArcive:
         """
         Read a CSV into a pandas DataFrame
         
-        :param fn: DESCRIPTION
-        :type fn: TYPE
-        :return: DESCRIPTION
-        :rtype: TYPE
+        :param fn: Name and location of the .csv file
+        :type fn: string
+        :return: None
+        :rtype: None
 
         """
         
@@ -241,14 +241,12 @@ class SBMTArcive:
 
     def copy_edi_file(self, edi_fn):
         """
-
+        Make a copy of an .edi file at the specified location
 
         Parameters
         ----------
-        station : TYPE
-            DESCRIPTION.
-        edi_fn : TYPE
-            DESCRIPTION.
+        edi_fn : string
+            Name and location of the .edi file.
 
         Returns
         -------
@@ -264,14 +262,12 @@ class SBMTArcive:
 
     def copy_png_file(self, png_fn):
         """
-
+        Make a copy of a .png file at the specified location
 
         Parameters
         ----------
-        station : TYPE
-            DESCRIPTION.
-        png_fn : TYPE
-            DESCRIPTION.
+        png_fn : string
+            Name and location of the .png file.
 
         Returns
         -------
@@ -287,14 +283,12 @@ class SBMTArcive:
 
     def copy_xml_file(self, xml_fn):
         """
-
+        Make a copy of a .xml file at the specified location
 
         Parameters
         ----------
-        station : TYPE
-            DESCRIPTION.
-        xml_fn : TYPE
-            DESCRIPTION.
+        xml_fn : string
+            Name and location of the .xml file.
 
         Returns
         -------
@@ -311,14 +305,14 @@ class SBMTArcive:
 
     def copy_files_to_archive_dir(self, archive_dir, station):
         """
-
+        Copy all .edi, .png, and .xml files to an archiving directory
 
         Parameters
         ----------
-        archive_dir : TYPE
-            DESCRIPTION.
-        station : TYPE
-            DESCRIPTION.
+        archive_dir : string
+            Name and location of the archiving directory.
+        station : string
+            Name of the station; will be used in renaming the file copies.
 
         Returns
         -------
@@ -343,8 +337,8 @@ class SBMTArcive:
 
         Parameters
         ----------
-        station : TYPE
-            DESCRIPTION.
+        station : string
+            Name and location for the archiving hierarchy.
 
         Returns
         -------
@@ -373,11 +367,13 @@ class SBMTArcive:
 
         Parameters
         ----------
-        run_df : TYPE
-            DESCRIPTION.
-        xml_child_template : TYPE, optional
-            DESCRIPTION. The default is None.
-        **kwargs: TYPE
+        station : string
+            Name of the station.
+        save_station_dir : string
+            The directory where the station's metadata is to be saved.
+        df : string, optional
+            Optional settings for the run_df. The default is None.
+        **kwargs: string
             Can include xml_child_template, xml_cfg_fn
 
         Returns
@@ -423,19 +419,20 @@ class SBMTArcive:
 
     def make_station_mth5(self, station_dir, mth5_file_version="0.1.0", **kwargs):
         """
-        make an mth5 for a single station
+        Make an mth5 for a single station
 
         Parameters
         ----------
-        station_dir : TYPE
-            DESCRIPTION.
-        **kwargs : TYPE
-            DESCRIPTION.
+        station_dir : string
+            Name and location of station directory.
+        mth5_file_version : string, optional
+            Version of mth5 file to be made, default is 0.1.0
 
         Raises
         ------
         ArchiveError
-            DESCRIPTION.
+            Raised if the data to be archived is missing or the
+            resultant hdf5 file cannot be opened after being created.
 
         Returns
         -------
@@ -535,14 +532,16 @@ class SBMTArcive:
 
         Parameters
         ----------
-        page_id : TYPE
-            DESCRIPTION.
-        station_dir : TYPE
-            DESCRIPTION.
-        username : TYPE
-            DESCRIPTION.
-        file_types : TYPE
-            DESCRIPTION.
+        page_id : string
+            The page ID for the ScienceBase archive receiving the upload.
+        station_dir : string
+            The directory for the station data and metadata.
+        username : string
+            Username for upload credentials.
+        password : string
+            Password for upload credentials.
+        file_types : array of strings
+            Filetypes to be uploaded.
 
         Returns
         -------
@@ -676,18 +675,18 @@ class SBMTArcive:
         """
         Upload stations to Science Base
         
-        :param page_id: DESCRIPTION
-        :type page_id: TYPE
-        :param archive_dir: DESCRIPTION
-        :type archive_dir: TYPE
-        :param username: DESCRIPTION
-        :type username: TYPE
-        :param password: DESCRIPTION
-        :type password: TYPE
-        :param file_types: DESCRIPTION, defaults to [".zip", ".edi", ".png", ".xml", ".h5"]
-        :type file_types: TYPE, optional
-        :return: DESCRIPTION
-        :rtype: TYPE
+        :param page_id: The page ID for the ScienceBase page receiving the upload
+        :type page_id: string
+        :param archive_dir: Name and location of the top level archiving directory
+        :type archive_dir: string
+        :param username: Username for upload credentials
+        :type username: string
+        :param password: Password for upload credentials
+        :type password: string
+        :param file_types: File types to upload, defaults to [".zip", ".edi", ".png", ".xml", ".h5"]
+        :type file_types: array of strings, optional
+        :return: None
+        :rtype: None
 
         """
 
